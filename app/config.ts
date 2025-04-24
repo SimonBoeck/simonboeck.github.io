@@ -2,6 +2,8 @@ export const metaData = {
   baseUrl: "https://www.innoviq.de",
   title: "innoviq GmbH - Simon Böck - Angerstraße 46a - 86842 Türkheim",
   name: "Simon Böck",
+  description: "",
+  ogImage: "/opengraph-image.png",
 };
 
 export const socialLinks = {
