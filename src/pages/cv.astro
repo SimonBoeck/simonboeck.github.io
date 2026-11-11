@@ -13,14 +13,14 @@ import {
 } from "../data/cv";
 ---
 <BaseLayout title={`CV - ${metaData.name}`}>
-  <header class="cv-no-print mb-10">
+  <header class="mb-10">
     <h1 class="font-serif font-semibold text-3xl tracking-tight text-primary">{metaData.name}</h1>
     <p class="font-sans text-secondary">Product Manager / Product Owner / Business Analyst</p>
     <p class="font-sans text-sm text-muted-foreground mt-2">{metaData.title}</p>
     <a
       href="/files/Simon_Boeck_Product_Owner_IAM_API_en.pdf"
       download
-      class="inline-block mt-4 font-sans text-accent hover:underline"
+      class="cv-no-print inline-block mt-4 font-sans text-accent hover:underline"
     >
       Download PDF
     </a>
@@ -100,6 +100,16 @@ import {
   @media print {
     nav, footer, .cv-no-print {
       display: none !important;
+    }
+
+    :root, :root.dark {
+      --color-primary: #0F172A;
+      --color-secondary: #334155;
+      --color-accent: #0369A1;
+      --color-background: #FFFFFF;
+      --color-foreground: #020617;
+      --color-border: #E2E8F0;
+      --color-muted-foreground: #475569;
     }
   }
 </style>

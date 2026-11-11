@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, description = metaData.description } = Astro.props;
+const pageTitle = title === metaData.title ? title : `${title} | ${metaData.title}`;
+const absoluteOgImage = new URL(metaData.ogImage, Astro.site).toString();
 ---
 <html lang="en">
   <head>
@@ -22,12 +24,14 @@ const { title, description = metaData.description } = Astro.props;
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={metaData.ogImage} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:url" content={metaData.baseUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaData.name} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

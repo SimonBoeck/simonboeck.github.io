@@ -2,7 +2,7 @@
 import { metaData, socialLinks } from "../config";
 const year = new Date().getFullYear();
 ---
-<small class="block lg:mt-24 mt-16 text-muted-foreground">
+<footer class="block lg:mt-24 mt-16 text-sm text-muted-foreground">
   <time>{year}</time> {metaData.title}
   <div class="flex items-center text-base gap-4 float-right">
     <a href={socialLinks.email} class="transition-colors hover:text-accent" aria-label="Email">
@@ -17,4 +17,4 @@ const year = new Date().getFullYear();
       </svg>
     </a>
   </div>
-</small>
+</footer>

@@ -21,8 +21,8 @@ export const personalInfo = {
 export const languages: string[] = ["German (Native)", "English (Business fluent)"];
 
 export const summary: string[] = [
-  "I accompany you as a product owner and business analyst in the development of your product. I will support you in analyzing your problem, identifying strategic and digital solutions, and coordinating development teams.",
-  "Together we establish your vision, maximize values so that you are successful in the digital transformation. I offer a wide variety of tools, techniques and approaches to jointly achieve ambitious strategies and inspiring product visions, value-adding products through the use of digital technologies, modern work cultures, and the courage to never accept the status quo as a given.",
+  "For more than a decade, I've worked across product management, agile methodologies, API development, and digital transformation in a wide range of industries.",
+  "I help you build better products: analyzing problems, identifying the right strategic and digital solutions, and coordinating development teams to get there.",
 ];
 
 export const skills = {
