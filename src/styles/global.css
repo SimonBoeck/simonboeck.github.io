@@ -55,3 +55,11 @@ body {
   border-radius: 9999px;
   background-color: var(--color-accent);
 }
+
+/* Progressive-enhancement motion: .js-ready is only added by an inline
+   bootstrap script when JS runs AND prefers-reduced-motion is not set.
+   No JS, or reduced motion requested -> content is simply visible. */
+.js-ready [data-animate] {
+  opacity: 0;
+  transform: translateY(8px);
+}

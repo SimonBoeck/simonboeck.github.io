@@ -10,9 +10,15 @@
   </svg>
 </button>
 
-<script is:inline>
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+<script>
+  import { animate } from "motion";
+
+  const button = document.getElementById("theme-toggle");
+  button?.addEventListener("click", () => {
     const isDark = document.documentElement.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    if (document.documentElement.classList.contains("js-ready")) {
+      animate(button, { scale: [1, 0.8, 1] }, { duration: 0.3, ease: "easeOut" });
+    }
   });
 </script>
