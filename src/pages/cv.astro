@@ -13,13 +13,13 @@ import {
 } from "../data/cv";
 ---
 <BaseLayout title={`CV - ${metaData.name}`}>
-  <header data-animate="load" class="mb-10">
+  <header data-animate="load" class="mb-10 flex flex-row items-center justify-between gap-4">
     <h1 class="font-serif font-semibold text-3xl tracking-tight text-primary">{metaData.name}</h1>
     <a
       href="/files/Simon_Boeck_Product_Owner_IAM_API_en.pdf"
       download
       data-press
-      class="cv-no-print inline-block mt-4 font-sans text-accent hover:underline"
+      class="cv-no-print inline-block font-sans text-accent hover:underline whitespace-nowrap"
     >
       Download PDF
     </a>
