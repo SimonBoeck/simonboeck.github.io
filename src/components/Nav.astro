@@ -1,0 +1,14 @@
+---
+import { metaData } from "../config";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+<nav class="lg:mb-16 mb-12 py-5">
+  <div class="flex flex-col md:flex-row md:items-center justify-between">
+    <a href="/" class="text-2xl font-serif font-semibold tracking-tight text-primary">{metaData.name}</a>
+    <div class="flex flex-row gap-6 mt-6 md:mt-0 md:ml-auto items-center font-sans text-secondary">
+      <a href="/cv" class="transition-colors hover:text-accent">CV</a>
+      <a href="/testimonials" class="transition-colors hover:text-accent">Testimonials</a>
+      <ThemeToggle />
+    </div>
+  </div>
+</nav>
