@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { testimonials } from "../data/testimonials";
+---
+<BaseLayout title="Testimonials">
+  <h1 data-animate="load" class="font-serif font-semibold text-3xl tracking-tight text-primary mb-8">Testimonials</h1>
+  <div class="space-y-6" data-stagger-group>
+    {testimonials.map((t) => (
+      <article data-animate="scroll" class="border border-border rounded-lg p-6">
+        <h2 class="font-serif font-semibold text-primary">{t.name}</h2>
+        <h3 class="font-sans text-sm text-muted-foreground mb-3">{t.title} - {t.company}</h3>
+        <p class="font-sans text-secondary leading-relaxed">{t.description}</p>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

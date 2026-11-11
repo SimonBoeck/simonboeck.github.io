@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { metaData } from "../config";
+import {
+  personalInfo,
+  languages,
+  summary,
+  skills,
+  education,
+  certifications,
+  projects,
+  projectsNote,
+} from "../data/cv";
+---
+<BaseLayout title={`CV - ${metaData.name}`}>
+  <header data-animate="load" class="mb-10 flex flex-row items-center justify-between gap-4">
+    <h1 class="font-serif font-semibold text-3xl tracking-tight text-primary">Curriculum Vitae</h1>
+    <a
+      href="/files/Simon_Boeck_Product_Owner_IAM_API_en.pdf"
+      download
+      data-press
+      class="cv-no-print inline-block font-sans text-accent hover:underline whitespace-nowrap"
+    >
+      Download PDF
+    </a>
+  </header>
+
+  <section data-animate="scroll" class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Personal Information</h2>
+    <p class="font-sans text-secondary">Citizenship: {personalInfo.citizenship}</p>
+    <p class="font-sans text-secondary">Travel readiness: {personalInfo.travelReadiness}</p>
+    <p class="font-sans text-secondary">Capacity: {personalInfo.capacity}</p>
+    <h3 class="font-serif font-semibold text-primary mt-4 mb-1">Languages</h3>
+    <ul class="dot-list text-secondary">
+      {languages.map((l) => <li>{l}</li>)}
+    </ul>
+  </section>
+
+  <section data-animate="scroll" class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Summary</h2>
+    {summary.map((p) => <p class="font-sans text-secondary leading-relaxed mb-4">{p}</p>)}
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-stagger-group>
+      <div data-animate="scroll">
+        <h3 class="font-serif font-semibold text-primary mb-1">Practices / Agile methods</h3>
+        <ul class="dot-list text-secondary">{skills.practices.map((s) => <li>{s}</li>)}</ul>
+      </div>
+      <div data-animate="scroll">
+        <h3 class="font-serif font-semibold text-primary mb-1">Areas of expertise</h3>
+        <ul class="dot-list text-secondary">{skills.expertise.map((s) => <li>{s}</li>)}</ul>
+      </div>
+      <div data-animate="scroll">
+        <h3 class="font-serif font-semibold text-primary mb-1">Tools</h3>
+        <ul class="dot-list text-secondary">{skills.tools.map((s) => <li>{s}</li>)}</ul>
+      </div>
+      <div data-animate="scroll">
+        <h3 class="font-serif font-semibold text-primary mb-1">Techniques</h3>
+        <ul class="dot-list text-secondary">{skills.techniques.map((s) => <li>{s}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section data-animate="scroll" class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Education</h2>
+    <ul class="dot-list text-secondary">
+      {education.map((e) => <li>{e.degree} — {e.year}, {e.institution}</li>)}
+    </ul>
+  </section>
+
+  <section data-animate="scroll" class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Certifications</h2>
+    <ul class="dot-list text-secondary">
+      {certifications.map((c) => <li>{c}</li>)}
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif font-semibold text-xl text-primary mb-3">Experience</h2>
+    <div class="space-y-8" data-stagger-group>
+      {projects.map((p) => (
+        <article data-animate="scroll">
+          <h3 class="font-serif font-semibold text-primary">{p.role}</h3>
+          <p class="font-sans text-sm text-muted-foreground mb-2">{p.client} — {p.dates}</p>
+          <p class="font-sans text-secondary leading-relaxed mb-2">{p.description}</p>
+          <ul class="dot-list text-secondary">
+            {p.responsibilities.map((r) => <li>{r}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+    <p class="font-sans text-sm text-muted-foreground italic mt-6">{projectsNote}</p>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  @media print {
+    nav, footer, .cv-no-print {
+      display: none !important;
+    }
+
+    [data-animate] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    :root, :root.dark {
+      --color-primary: #000000;
+      --color-secondary: #525252;
+      --color-accent: #262626;
+      --color-background: #FFFFFF;
+      --color-foreground: #000000;
+      --color-border: #E5E5E5;
+      --color-muted-foreground: #1C1C1C;
+    }
+  }
+</style>

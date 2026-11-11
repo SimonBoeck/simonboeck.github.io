@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #525252;
+  --color-accent: #262626;
+  --color-background: #FFFFFF;
+  --color-foreground: #000000;
+  --color-border: #E5E5E5;
+  --color-muted-foreground: #1C1C1C;
+}
+
+:root.dark {
+  --color-primary: #FFFFFF;
+  --color-secondary: #A3A3A3;
+  --color-accent: #E5E5E5;
+  --color-background: #121212;
+  --color-foreground: #FFFFFF;
+  --color-border: #262626;
+  --color-muted-foreground: #D4D4D4;
+}
+
+html {
+  min-width: 360px;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+::selection {
+  background-color: #47a3f3;
+  color: #fefefe;
+}
+
+.dot-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.dot-list li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.dot-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  height: 0.375rem;
+  width: 0.375rem;
+  border-radius: 9999px;
+  background-color: var(--color-accent);
+}
+
+/* Progressive-enhancement motion: .js-ready is only added by an inline
+   bootstrap script when JS runs AND prefers-reduced-motion is not set.
+   No JS, or reduced motion requested -> content is simply visible. */
+.js-ready [data-animate] {
+  opacity: 0;
+  transform: translateY(8px);
+}

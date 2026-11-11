@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { metaData } from "../config";
+---
+<BaseLayout title={metaData.title} description={metaData.description}>
+  <img
+    data-animate="load"
+    src="/profile.jpg"
+    alt="Profile photo"
+    width="250"
+    height="250"
+    class="rounded-full ring-1 ring-border shadow-sm block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-6 sm:mb-5"
+  />
+  <h1 data-animate="load" class="font-serif font-semibold text-3xl tracking-tight text-primary mb-8">About me</h1>
+  <div data-stagger-group>
+    <p data-animate="scroll" class="text-secondary leading-relaxed mb-4">
+      Hi, I'm Simon Böck — a Product Manager, Product Owner, and Business Analyst.
+    </p>
+    <p data-animate="scroll" class="text-secondary leading-relaxed mb-4">
+      For more than a decade, I've worked across product management, agile methodologies, API development, and digital transformation in a wide range of industries.
+    </p>
+    <p data-animate="scroll" class="text-secondary leading-relaxed mb-4">
+      I help you build better products: analyzing problems, identifying the right strategic and digital solutions, and coordinating development teams to get there.
+    </p>
+    <p data-animate="scroll" class="text-secondary leading-relaxed mb-4">
+      Together, we shape your vision and turn it into real value. My toolkit is built to help you achieve:
+    </p>
+    <ul class="dot-list space-y-2 text-secondary">
+      <li data-animate="scroll">ambitious strategies and inspiring product visions</li>
+      <li data-animate="scroll">value-adding products powered by digital technology</li>
+      <li data-animate="scroll">modern ways of working</li>
+      <li data-animate="scroll">the courage to challenge the status quo</li>
+    </ul>
+  </div>
+</BaseLayout>
