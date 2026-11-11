@@ -1,4 +1,4 @@
-import { animate, inView, press, stagger } from "motion";
+import { animate, inView, press } from "motion";
 
 const DURATION = 0.4;
 const EASE = "easeOut";
@@ -14,16 +14,25 @@ export function initRevealAnimations() {
     reveal(el, { delay: i * 0.05 });
   });
 
+  // Reveal each [data-animate='scroll'] element as it individually enters the
+  // viewport. Items inside a [data-stagger-group] get a small index-based delay
+  // so siblings that enter together still animate in as a stagger.
+  //
+  // Each item is observed on its own (not the group container) because a
+  // group's total height can exceed what a small viewport can ever satisfy
+  // for a ratio-based amount (e.g. a tall list of CV entries on a phone),
+  // which would leave the whole group permanently unrevealed.
   document.querySelectorAll<HTMLElement>("[data-stagger-group]").forEach((group) => {
     const items = Array.from(group.querySelectorAll<HTMLElement>("[data-animate='scroll']"));
-    if (items.length === 0) return;
-    inView(
-      group,
-      () => {
-        reveal(items, { delay: stagger(0.04) });
-      },
-      { amount: 0.2 }
-    );
+    items.forEach((el, i) => {
+      inView(
+        el,
+        () => {
+          reveal(el, { delay: i * 0.04 });
+        },
+        { amount: "some" }
+      );
+    });
   });
 
   document.querySelectorAll<HTMLElement>("[data-animate='scroll']").forEach((el) => {
@@ -33,7 +42,7 @@ export function initRevealAnimations() {
       () => {
         reveal(el);
       },
-      { amount: 0.2 }
+      { amount: "some" }
     );
   });
 }

@@ -15,6 +15,9 @@ dist/
 # local claude tooling (vendored skill packages, dev launch config)
 .claude/
 
+# superpowers scratch state (brainstorm sessions, sdd workspaces)
+.superpowers/
+
 # production
 /build
 
