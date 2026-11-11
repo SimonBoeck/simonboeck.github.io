@@ -8,9 +8,12 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# astro
+dist/
+.astro/
+
+# local claude tooling (vendored skill packages, dev launch config)
+.claude/
 
 # production
 /build
